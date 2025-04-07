@@ -26,7 +26,12 @@ export default function CryptoCard({ crypto }: CryptoCardProps) {
   const formatPercentage = (percentage: number) => {
     const isPositive = percentage >= 0;
     return (
-      <span className={`inline-flex items-center ${isPositive ? 'text-success' : 'text-error'}`}>
+      <span 
+        className={`
+          inline-flex items-center px-2 py-1 rounded-md text-white 
+          ${isPositive ? 'bg-success/20' : 'bg-error/20'}
+        `}
+      >
         {isPositive ? '+' : ''}
         {percentage.toFixed(2)}%
         <svg
@@ -65,8 +70,10 @@ export default function CryptoCard({ crypto }: CryptoCardProps) {
             <h3 className="font-semibold text-white">{crypto.name}</h3>
             <p className="text-sm uppercase text-gray-400">{crypto.symbol}</p>
           </div>
-          <div className="flex flex-col items-end">
-            <span className="font-mono text-white">{formatCurrency(crypto.current_price)}</span>
+          <div className="flex flex-col items-end space-y-1">
+            <span className={`font-mono font-medium ${crypto.price_change_percentage_24h >= 0 ? 'text-success' : 'text-error'}`}>
+              {formatCurrency(crypto.current_price)}
+            </span>
             {formatPercentage(crypto.price_change_percentage_24h)}
           </div>
         </div>

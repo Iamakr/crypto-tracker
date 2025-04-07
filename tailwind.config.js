@@ -5,6 +5,17 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    'bg-success',
+    'bg-success/20',
+    'text-success',
+    'bg-error',
+    'bg-error/20',
+    'text-error',
+    'bg-warning',
+    'bg-warning/20',
+    'text-warning',
+  ],
   theme: {
     extend: {
       colors: {
@@ -25,9 +36,21 @@ module.exports = {
           light: '#1e293b',
           dark: '#060c19',
         },
-        success: '#10b981',
-        error: '#ef4444',
-        warning: '#f59e0b',
+        success: {
+          DEFAULT: '#10b981',
+          light: '#34d399',
+          dark: '#059669',
+        },
+        error: {
+          DEFAULT: '#ef4444',
+          light: '#f87171',
+          dark: '#dc2626',
+        },
+        warning: {
+          DEFAULT: '#f59e0b',
+          light: '#fbbf24',
+          dark: '#d97706',
+        },
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
